@@ -1,0 +1,1 @@
+export default function ResultsPage() { return <div><h2 style={{fontSize:24,fontWeight:700,color:'#071225'}}>Results</h2><p style={{color:'#667085'}}>Search, filter by subject/exam/status/date, sort, paginate, export CSV — connects to /api/v1/evaluations when available.</p></div>; }

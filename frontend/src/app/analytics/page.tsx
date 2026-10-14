@@ -1,0 +1,1 @@
+export default function AnalyticsPage() { return <div><h2 style={{fontSize:24,fontWeight:700,color:'#071225'}}>Analytics</h2><p style={{color:'#667085'}}>Recharts: score distribution, avg by subject, activity over time, question performance — uses /api/v1/analytics/overview when available.</p></div>; }

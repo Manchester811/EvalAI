@@ -1,0 +1,2 @@
+import { LayoutDashboard, FileCheck2, BarChart3, BookOpenCheck, Users, Settings2 } from 'lucide-react';
+export const nav = [{ label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard }, { label: 'Evaluate Sheets', href: '/evaluate', icon: FileCheck2 }, { label: 'Results', href: '/results', icon: BarChart3 }, { label: 'Question Bank', href: '/question-bank', icon: BookOpenCheck }, { label: 'Students', href: '/students', icon: Users }, { label: 'Analytics', href: '/analytics', icon: BarChart3 }, { label: 'Settings', href: '/settings', icon: Settings2 }];

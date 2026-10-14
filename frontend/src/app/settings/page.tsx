@@ -1,0 +1,1 @@
+export default function SettingsPage() { return <div><h2 style={{fontSize:24,fontWeight:700,color:'#071225'}}>Settings</h2><p style={{color:'#667085'}}>Profile, institution, upload/OCR/LLM config, security, retention — admin-only enforced on backend.</p></div>; }

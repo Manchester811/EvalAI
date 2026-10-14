@@ -1,0 +1,1 @@
+export default function StudentsPage() { return <div><h2 style={{fontSize:24,fontWeight:700,color:'#071225'}}>Students</h2><p style={{color:'#667085'}}>List with search, add student, evaluations history — connects to /api/v1/students.</p></div>; }

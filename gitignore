@@ -1,0 +1,101 @@
+# Secrets and environment
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node.js / Next.js
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+out/
+coverage/
+.npm/
+.turbo/
+.vercel/
+*.tsbuildinfo
+
+# Runtime data and uploads
+uploads/
+**/uploads/
+private_uploads/
+storage/
+*.log
+*.pid
+*.tmp
+*.temp
+
+# Local databases and backups
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.dump
+*.bak
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# IDEs and operating systems
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.swp
+*.swo

@@ -1,0 +1,1 @@
+export default function QBPage() { return <div><h2 style={{fontSize:24,fontWeight:700,color:'#071225'}}>Question Bank</h2><p style={{color:'#667085'}}>Search, filter by exam/subject, add/edit/archive questions with rubric criteria — connects to /api/v1/exams and /api/v1/questions.</p></div>; }
