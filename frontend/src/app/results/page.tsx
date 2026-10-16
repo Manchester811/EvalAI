@@ -1,5 +1,6 @@
 import AppShell from "@/components/layout/AppShell";
 import { useState, useEffect } from "react";
+import { api } from "@/lib/api-client";
 
 export default function ResultsPage() {
   const [data, setData] = useState<any[]>([]);
@@ -7,10 +8,9 @@ export default function ResultsPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/evaluations")
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.statusText)))
+    api.evaluations()
       .then((json) => { setData(Array.isArray(json) ? json : []); setLoading(false); })
-      .catch((e) => { setError(String(e)); setLoading(false); });
+      .catch((e: any) => { setError(e.message || String(e)); setLoading(false); });
   }, []);
 
   return (

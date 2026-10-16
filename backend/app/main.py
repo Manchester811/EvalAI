@@ -16,12 +16,15 @@ import app.models  # noqa: F401 - register every model before create_all
 
 app = FastAPI()
 
+allowed = [settings.FRONTEND_ORIGIN] if settings.FRONTEND_ORIGIN else []
+if settings.APP_ENV == "development":
+    allowed = list({*allowed, "http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:8000"})
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_ORIGIN],
+    allow_origins=allowed,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "Accept"],
 )
 app.include_router(health_router, tags=['health'])
 app.include_router(exams_router)
