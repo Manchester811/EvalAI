@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     OCR_PROVIDER: str = "paddleocr"
     LLM_PROVIDER: str = "none"
     LLM_API_KEY: str = ""
+    OPENAI_API_KEY: str = ""
+    GEMINI_API_KEY: str = ""
     EVALUATION_PROVIDER: str = "mock"
     FRONTEND_ORIGIN: str = "http://localhost:3000"
 

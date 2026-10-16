@@ -32,5 +32,11 @@ def get_ocr_provider() -> OCRProvider:
     elif provider_name == 'mock':
         from app.services.ocr.mock_provider import MockOCRProvider
         return MockOCRProvider()
+    elif provider_name == 'chatgpt':
+        from app.services.ocr.chatgpt_provider import ChatGPTProvider
+        return ChatGPTProvider(api_key=settings.LLM_API_KEY)
+    elif provider_name == 'gemini':
+        from app.services.ocr.gemini_provider import GeminiProvider
+        return GeminiProvider(api_key=settings.GEMINI_API_KEY)
     else:
         raise ValueError(f'Unknown OCR provider: {provider_name}')
