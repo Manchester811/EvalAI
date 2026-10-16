@@ -8,6 +8,9 @@ from app.schemas.uploads import UploadResponse
 from app.services import storage
 from app.models.answer_sheets import AnswerSheet
 
+from app.core.auth import get_current_user, require_role
+from app.core.security import Role
+
 router = APIRouter(prefix='/api/v1', tags=['uploads'])
 
 ALLOWED_MIME_TYPES = {'image/jpeg', 'image/png', 'application/pdf'}
@@ -34,7 +37,8 @@ async def upload_answer_sheet(
     file: UploadFile = File(...),
     exam_id: int = Form(None),
     student_id: int = Form(None),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(require_role(Role.faculty, Role.admin)),
 ):
     # Read bytes (limit enforced by server / middleware; enforce MAX_UPLOAD_MB here)
     raw = await file.read()
