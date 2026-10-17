@@ -71,7 +71,7 @@ async def upload_answer_sheet(
     try:
         if raw[:4] == b'%PDF':
             import re
-            pages = len(re.findall(b'/Type\s*/Page[^s]', raw[:50000]))
+            pages = len(re.findall(b'/Type\\s*/Page[^s]', raw[:50000], re.ASCII))
             if pages > 20:
                 raise HTTPException(status_code=400, detail='PDF exceeds 20 pages.')
     except HTTPException:

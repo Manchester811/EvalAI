@@ -78,7 +78,7 @@ def update_evaluation(
         db.rollback()
         # Audit failure must not leave incorrect success; log failure, then raise
         try:
-        log_audit_event(
+            log_audit_event(
             db=db,
             user_id=current_user.get("id", 0),
             action="audit_failed",
@@ -133,8 +133,6 @@ def approve_evaluation(
             pass
         raise HTTPException(status_code=500, detail="Approval failed; audit logged.")
     return {**_serialize(evaluation), "approved": True, "reviewed_by": current_user["id"], "finalized_at": evaluation.finalized_at.isoformat()}
-
-    finalized_at = datetime.utcnow()
     evaluation.status = "approved"
     evaluation.reviewed_by = user_id
     evaluation.finalized_at = finalized_at
