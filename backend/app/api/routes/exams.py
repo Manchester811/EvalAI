@@ -7,7 +7,7 @@ from app.schemas.exams import ExamCreate, ExamOut
 from app.core.auth import get_current_user, require_role
 from app.core.security import Role
 
-router = APIRouter(prefix="/exams", tags=["exams"])
+router = APIRouter(prefix="/api/v1/exams", tags=["exams"])
 
 @router.post("/", response_model=ExamOut)
 def create_exam(obj_in: ExamCreate, db: Session = Depends(get_db), current_user: dict = Depends(require_role(Role.faculty, Role.admin))):

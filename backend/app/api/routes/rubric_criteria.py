@@ -4,7 +4,7 @@ from app.db.session import get_db
 from app.repositories import rubric_criterion_repo as repo
 from app.schemas.rubric_criteria import RubricCriterionCreate, RubricCriterionOut
 
-router = APIRouter(prefix="/rubric-criteria", tags=["rubric_criteria"])
+router = APIRouter(prefix="/api/v1/rubric-criteria", tags=["rubric_criteria"])
 
 @router.post("/", response_model=RubricCriterionOut)
 def create_criterion(obj_in: RubricCriterionCreate, db: Session = Depends(get_db)):

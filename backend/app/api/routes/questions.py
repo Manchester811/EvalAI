@@ -4,7 +4,7 @@ from app.db.session import get_db
 from app.repositories import question_repo as repo
 from app.schemas.questions import QuestionCreate, QuestionOut
 
-router = APIRouter(prefix="/questions", tags=["questions"])
+router = APIRouter(prefix="/api/v1/questions", tags=["questions"])
 
 @router.post("/", response_model=QuestionOut)
 def create_question(obj_in: QuestionCreate, db: Session = Depends(get_db)):

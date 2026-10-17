@@ -10,4 +10,5 @@ from app.models.evaluations import Evaluation
 from app.models.question_scores import QuestionScore
 from app.models.feedback_items import FeedbackItem
 from app.models.audit_logs import AuditLog
-__all__ = ["Base","User","Student","Exam","Question","RubricCriterion","AnswerSheet","ExtractedAnswer","Evaluation","QuestionScore","FeedbackItem","AuditLog"]
+from app.models.batch import BatchRecord
+__all__ = ["Base","User","Student","Exam","Question","RubricCriterion","AnswerSheet","ExtractedAnswer","Evaluation","QuestionScore","FeedbackItem","AuditLog","BatchRecord"]
