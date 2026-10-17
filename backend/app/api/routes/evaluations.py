@@ -133,21 +133,3 @@ def approve_evaluation(
             pass
         raise HTTPException(status_code=500, detail="Approval failed; audit logged.")
     return {**_serialize(evaluation), "approved": True, "reviewed_by": current_user["id"], "finalized_at": evaluation.finalized_at.isoformat()}
-    evaluation.status = "approved"
-    evaluation.reviewed_by = user_id
-    evaluation.finalized_at = finalized_at
-    try:
-        db.commit()
-        db.refresh(evaluation)
-        log_audit_event(
-            db=db,
-            user_id=user_id,
-            action="evaluation_approve",
-            entity_type="evaluation",
-            entity_id=evaluation_id,
-            details={"new_status": "approved"},
-        )
-    except Exception:
-        db.rollback()
-        raise
-    return _serialize(evaluation)

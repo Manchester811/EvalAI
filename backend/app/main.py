@@ -9,7 +9,8 @@ from app.api.routes.evaluations import router as evaluations_router
 from app.api.routes.exports import router as exports_router
 from app.api.routes.analytics import router as analytics_router
 from app.api.routes.bulk import router as bulk_router
-from app.db.session import engine
+from app.api.routes.students import router as students_router
+from app.db.session import engine
 from app.db.base import Base
 from app.core.config import settings
 import app.models  # noqa: F401 - register every model before create_all
@@ -38,6 +39,7 @@ app.include_router(evaluations_router)
 app.include_router(exports_router)
 app.include_router(analytics_router)
 app.include_router(bulk_router)
+app.include_router(students_router)
 
 # TestClient requests do not always enter the ASGI lifespan context. Creating
 # the local SQLite schema eagerly keeps a fresh development checkout usable;
